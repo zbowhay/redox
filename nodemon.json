@@ -1,0 +1,8 @@
+{
+    "verbose": true,
+    "ignore": [],
+    "execMap": {
+        "ts": "ts-node"
+    },
+    "delay": 500
+}

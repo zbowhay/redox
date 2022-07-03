@@ -1,0 +1,25 @@
+{
+  "name": "redox",
+  "version": "1.0.0",
+  "description": "Redox Coding Challenge",
+  "main": "index.js",
+  "scripts": {
+    "start:dev": "nodemon ./src/index.ts --watch",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zbowhay/redox.git"
+  },
+  "author": "Zachary Bowhay",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zbowhay/redox/issues"
+  },
+  "homepage": "https://github.com/zbowhay/redox#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.18",
+    "ts-node": "^10.8.2",
+    "typescript": "^4.7.4"
+  }
+}
