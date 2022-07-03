@@ -18,8 +18,14 @@
   },
   "homepage": "https://github.com/zbowhay/redox#readme",
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "nodemon": "^2.0.18",
+    "prettier": "^2.7.1",
     "ts-node": "^10.8.2",
     "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.1"
   }
 }
