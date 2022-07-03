@@ -6,10 +6,17 @@ Redox Coding Challenge
 
 You must create a `.env` file at root.
 
-| key          | value | description                                                                                                                                                                       |
-| ------------ | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GITHUB_USER  |       | The GitHub username you want to authenticate with                                                                                                                                 |
-| GITHUB_TOKEN |       | The [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) you want to authenticate with |
+| key             | value                  | required | description                                                                                                                                                                       |
+| --------------- | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| GITHUB_BASE_URL | https://api.github.com | no       | Base URL for GitHub APIs                                                                                                                                                          |
+| GITHUB_USER     |                        | yes      | The GitHub username you want to authenticate with                                                                                                                                 |
+| GITHUB_TOKEN    |                        | yes      | The [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) you want to authenticate with |
+
+### Scripts
+
+| script              | description                                      |
+| ------------------- | ------------------------------------------------ |
+| `npm run start:dev` | Start the program in 'dev' mode. watch & restart |
 
 ### Coding Challenge Description
 

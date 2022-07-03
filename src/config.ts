@@ -3,10 +3,12 @@ import 'dotenv/config';
 class Config {
   GITHUB_USER: string;
   GITHUB_TOKEN: string;
+  GITHUB_BASE_URL: string;
 
   constructor() {
     this.GITHUB_USER = process.env['GITHUB_USER'] || '';
     this.GITHUB_TOKEN = process.env['GITHUB_TOKEN'] || '';
+    this.GITHUB_BASE_URL = 'https://api.github.com';
 
     this.validate();
   }
