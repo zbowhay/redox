@@ -23,14 +23,18 @@ interface GithubPullRequest {
 }
 
 const getAllPullRequestsByRepo = async (repo: string): Promise<GithubPullRequest[]> => {
+  console.time(`total-${repo}`);
   const responses: any[] = [];
 
   // gather first page
+  console.time(`firstPage-${repo}`);
   const url = `${config.GITHUB_BASE_URL}/repos/ramda/${repo}/pulls?state=all&per_page=100`;
   const firstPage = await axios.get(url, { auth });
   responses.push(...firstPage.data);
+  console.timeEnd(`firstPage-${repo}`);
 
   // if there are additional pages gather all of those simultaneously
+  console.time(`remaining-${repo}`);
   const linkHeader = firstPage.headers.link;
   if (typeof linkHeader !== 'undefined') {
     const lastPageRegex = /next.*page=(\d+).*last"$/;
@@ -47,9 +51,11 @@ const getAllPullRequestsByRepo = async (repo: string): Promise<GithubPullRequest
     const reaminingResponses = await Promise.all(remainingPages);
     reaminingResponses.forEach(r => responses.push(...r.data));
   }
+  console.timeEnd(`remaining-${repo}`);
 
   // return subset of the data
-  return responses.map(data => ({
+  console.time(`map-${repo}`);
+  const final = responses.map(data => ({
     id: data.id,
     number: data.number,
     state: data.state,
@@ -65,6 +71,10 @@ const getAllPullRequestsByRepo = async (repo: string): Promise<GithubPullRequest
     requestedReviewers: data.requested_reviewers,
     requestedTeams: data.requested_teams,
   }));
+  console.timeEnd(`map-${repo}`);
+
+  console.timeEnd(`total-${repo}`);
+  return final;
 };
 
 (async () => {
@@ -74,8 +84,10 @@ const getAllPullRequestsByRepo = async (repo: string): Promise<GithubPullRequest
   const repos: string[] = reposResponse.map(d => d.name);
 
   // gather all pull requests across all ramda repos
+  console.time('total');
   const pullsForEachRepo = repos.map(repo => getAllPullRequestsByRepo(repo));
   const results = await Promise.all(pullsForEachRepo);
+  console.timeEnd('total');
 
   // store all pull request data in a map where repo name is key
   const pulls: { [key: string]: GithubPullRequest[] } = {};
