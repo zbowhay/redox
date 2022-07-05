@@ -86,7 +86,7 @@ const getAllPullRequestsByRepo = async (repo: string): Promise<GithubPullRequest
 
   // how many pull requests total?
   const totalPullRequests = Object.values(pulls).reduce((prev, curr) => (prev += curr.length), 0);
-  console.log(totalPullRequests);
+  console.log('all', totalPullRequests);
 
   // how many pull requests per repo?
   Object.entries(pulls).forEach(entry => {

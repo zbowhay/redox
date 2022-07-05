@@ -2,7 +2,7 @@
 
 Redox Coding Challenge
 
-### Setup
+## Setup
 
 You must create a `.env` file at root.
 
@@ -12,13 +12,14 @@ You must create a `.env` file at root.
 | GITHUB_USER     |                        | yes      | The GitHub username you want to authenticate with                                                                                                                                 |
 | GITHUB_TOKEN    |                        | yes      | The [GitHub Personal Access Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) you want to authenticate with |
 
-### Scripts
+## Scripts
 
 | script              | description                                      |
 | ------------------- | ------------------------------------------------ |
 | `npm run start:dev` | Start the program in 'dev' mode. watch & restart |
+| `npm run build`     | Transpile code                                   |
 
-### Coding Challenge Description
+## Coding Challenge Description
 
 For the coding task, we'll build a tool to analyze pull request traffic for a Github organization.
 
